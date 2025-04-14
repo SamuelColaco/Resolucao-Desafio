@@ -98,7 +98,6 @@ Campos obrigatórios:
 
 ### 🔐 Sessão
 
-```http
 URL: /session
     Propósito: Cria um token JWT
     Body: {
