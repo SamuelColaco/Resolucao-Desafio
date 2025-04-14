@@ -173,6 +173,7 @@ Campos obrigatórios:
 
 
  GET
+
     URL: /user
     Propósito: Lista todos os usuários
     Body: Não prescisa passar nada
