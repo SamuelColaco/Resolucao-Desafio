@@ -1,0 +1,58 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model NormalUser{
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  passwordHash String
+  CPF String @unique @db.Char(11)
+
+  balance Decimal @default(0)
+
+  
+  SentTransactions Transaction[] @relation("UserTransactions")
+  Received Transaction[] @relation("SellerTransactions")
+
+  createdAt DateTime @map("created_at") @default(now())
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Seller{
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  passwordHash String
+  CNPJ String @unique @db.Char(14)
+
+  balance Decimal @default(0)
+
+  Transaction Transaction[]
+
+
+  createdAt DateTime @map("created_at") @default(now())
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Transaction{
+  id String @id @default(uuid())
+  payerId String
+  payeeId String?
+  sellerId String?
+  date DateTime @default(now())
+  amount Decimal
+
+  User NormalUser @relation("UserTransactions", fields: [payerId], references: [id])
+  UserReceived NormalUser? @relation("SellerTransactions", fields: [payeeId], references: [id])
+
+  Seller Seller? @relation(fields: [sellerId], references: [id])
+}
+
