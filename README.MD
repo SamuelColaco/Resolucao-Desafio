@@ -98,8 +98,7 @@ Campos obrigatórios:
 
 ### 🔐 Sessão
 
-```http
-URL: /session
+    URL: /session
     Propósito: Cria um token JWT
     Body: {
         "email":"email do usuário",
@@ -174,6 +173,7 @@ URL: /session
 
 
  GET
+
     URL: /user
     Propósito: Lista todos os usuários
     Body: Não prescisa passar nada
@@ -195,10 +195,10 @@ URL: /session
 
      URL: /sellers
      Propósito: Lista todos os vendedores
-    Body: Não prescisa passar nada
-    Header: 
+     Body: Não prescisa passar nada
+     Header: 
         Authorization: Bearer seu_token_aqui
-    Reposta: [
+     Reposta: [
 	{
 		"id": "Id do usuário em formato UUID",
 		"name": "Nome",
