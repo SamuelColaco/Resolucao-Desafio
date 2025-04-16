@@ -1,17 +1,18 @@
 
 import { Router } from "express"
-import { SellerController } from "../controller/SellerController"
 import { EnsureAuthenticated } from "../middleware/EnsureAuthenticated"
+import * as sellerController from "./routesConfig/sellerRoutesConfig"
 
 
 const sellerRoutes = Router()
 
-const sellerController = new SellerController()
+sellerRoutes.get("/seller", EnsureAuthenticated, sellerController.indexSellerController.index.bind(sellerController.indexSellerController))
 
-sellerRoutes.get("/seller", EnsureAuthenticated, sellerController.index)
-sellerRoutes.post("/seller", sellerController.create)
-sellerRoutes.put("/seller/:id", EnsureAuthenticated, sellerController.update)
-sellerRoutes.delete("/seller/:id", EnsureAuthenticated, sellerController.deleteSeller)
+sellerRoutes.post("/seller", sellerController.createSellerController.create.bind(sellerController.createSellerController))
+
+sellerRoutes.put("/seller/:id", EnsureAuthenticated, sellerController.updateSellerController.update.bind(sellerController.updateSellerController))
+
+sellerRoutes.delete("/seller/:id", EnsureAuthenticated, sellerController.deleteSellerController.deleteSeller.bind(sellerController.deleteSellerController))
 
 
 export { sellerRoutes }
