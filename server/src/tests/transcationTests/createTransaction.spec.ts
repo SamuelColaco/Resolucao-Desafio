@@ -1,4 +1,4 @@
-import { Transaction } from "../../entities/Transaction"
+
 import { CreateTransaction } from "../../useCases/TransactionUserCases/CreateTransaction/CreateTransactionUseCase"
 
 describe("CreateTransactionUseCase", () => {
@@ -50,7 +50,7 @@ describe("CreateTransactionUseCase", () => {
         expect(mockGetAxiosNotification.notification).toHaveBeenCalledWith()
 
         expect(mockUserRepository.save).toHaveBeenCalled()
-        
+
         const savedTransaction = mockUserRepository.save.mock.calls[0][0]
         
         expect(savedTransaction).toMatchObject({
