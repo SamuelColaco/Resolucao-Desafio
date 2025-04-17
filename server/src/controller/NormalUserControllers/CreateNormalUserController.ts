@@ -23,7 +23,7 @@ export class CreateNormalUserController{
             await this.createUserUseCase.execute({ name, CPF: cpf, email, password})
 
     
-            res.status(201).json({ message: "Usuário criado com sucesso no controller usuário"})
+            res.status(201).json({ message: "Usuário criado com sucesso"})
 
         }
 }
