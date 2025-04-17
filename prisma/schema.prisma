@@ -26,6 +26,7 @@ model NormalUser{
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
+
 model Seller{
   id String @id @default(uuid())
   name String
