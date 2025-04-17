@@ -1,5 +1,8 @@
 # 💸 PicPay Simplificado - API de Pagamentos
 
+![Node.js](https://img.shields.io/badge/Node.js-18.x-green)
+![Docker](https://img.shields.io/badge/Docker-✅-blue)
+
 Esta API simula uma plataforma de pagamentos simplificada, inspirada no PicPay. É possível realizar depósitos e transferências entre usuários comuns e lojistas, com regras de negócio específicas para cada tipo.
 
 ## 🚀 Tecnologias
@@ -138,7 +141,7 @@ Campos obrigatórios:
     }
     StatusCode: 201(Created)
 
-    URL: /transcation/payeeId
+    URL: /transaction/payeeId
     Propósito: Realiza transação
     Body: {
         "amount": 50
@@ -155,7 +158,7 @@ Campos obrigatórios:
     StatusCode: 201(Created)
 
     
-    URL: /transcation/sellerId
+    URL: /transaction/sellerId
     Propósito: Realiza transação
     Body: {
         "amount": 50
@@ -166,7 +169,7 @@ Campos obrigatórios:
     Message: {
         "value": valor,
         "payer": "id do pagador",
-        "payee": id de quem recebeu"
+        "payee": "id de quem recebeu"
     }
 
     StatusCode: 201(Created)
@@ -215,7 +218,7 @@ Campos obrigatórios:
  PUT
 
     URL: /user/:id
-    Prpósito: Atualiza um usuário
+    Propósito: Atualiza um usuário
     Body: {
         Passa o quer atualizar do usuário, por exemplo: {
 	        "password": "nova senha"
