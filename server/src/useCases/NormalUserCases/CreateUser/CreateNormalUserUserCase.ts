@@ -16,7 +16,7 @@ export class CreateNormalUser{
     async execute({ name, CPF, email, password }: ICreateNormalUserRequestDTO){
         
         const userExist = await this.NormalUsersRepository.findByEmail(email)
-
+        
         if(userExist){
             throw new AppError("Usuário já existe", 401)
         }
